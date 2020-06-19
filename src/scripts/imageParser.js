@@ -17,7 +17,10 @@ const mapImagesToObject = async (array, key) => {
     array,
     async fileName => {
       const base64 = await imageToBase64(fileName);
-      const pokemonNumber = path.basename(fileName, '.png').substring(0, 3);
+      const pokemonNumber = path
+        .basename(fileName, '.png')
+        .substring(0, 3)
+        .toString();
 
       if (!pokeObject[pokemonNumber]) {
         pokeObject[pokemonNumber] = {};

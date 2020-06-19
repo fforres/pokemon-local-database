@@ -33,16 +33,14 @@ export const getPokemonsByNames = (pokemonName: string = ''): PokemonType[] => {
             .includes(normalizedPokemonName.toLowerCase());
         });
 
-  return pokemons.map(pokemon => {
-    return {
-      id: pokemon.id,
-      stats: pokemon.base,
-      name: pokemon.name,
-      images: {
-        sprite: ImagesSprite[pokemon.id],
-        thumbnail: ImagesThumbnail[pokemon.id]
-      },
-      type: pokemon.type
-    };
-  });
+  return pokemons.map(pokemon => ({
+    id: pokemon.id,
+    stats: pokemon.base,
+    name: pokemon.name,
+    images: {
+      sprite: ImagesSprite[pokemon.id.toString()],
+      thumbnail: ImagesThumbnail[pokemon.id.toString()]
+    },
+    type: pokemon.type
+  }));
 };
